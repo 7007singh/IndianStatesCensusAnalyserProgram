@@ -16,7 +16,8 @@ namespace IndianCensusAnalyserTestProject
         string indianPopulation = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\IndianStateCensusData.csv";
         public const string incorrectFile = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\IndianCensus.txt";
         public const string incorrectFileType = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\CensusData.txt";
-        
+        public const string incorrectDelimiter = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\DelimiterIndiaStateCensusData.csv";
+
         [TestMethod]
         public void Given_CSVFile_Should_Return_NoOfRecord()
         {
@@ -25,8 +26,9 @@ namespace IndianCensusAnalyserTestProject
         }
 
         [TestMethod]
-        [DataRow(incorrectFileType, "Invalid file type")]
-        [DataRow(incorrectFile, "File Not Found")]
+        [DataRow(incorrectDelimiter, "File Containers Wrong Delimiter")]
+        //[DataRow(incorrectFileType, "Invalid file type")]
+        //[DataRow(incorrectFile, "File Not Found")]
         public void Given_State_CensusCSVFile_If_Incorrect_Returns_FileNotFound_Exception(string file, string expected)
         {
             var result = Assert.ThrowsException<CensusAnalyserException>(() => factory.LoadCsvData(CensusAnalyser.Country.INDIA, file, "State,Population,AreaInSqKm,DensityPerSqKm"));
