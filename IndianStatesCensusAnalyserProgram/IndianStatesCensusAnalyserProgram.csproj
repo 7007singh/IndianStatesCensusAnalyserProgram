@@ -59,8 +59,5 @@
     <None Include="CSVFile\DelimiterIndiaStateCensusData.csv" />
     <None Include="CSVFile\WrongIndiaStateCensusData.csv" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="CSVFile\IndianCensus.txt" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

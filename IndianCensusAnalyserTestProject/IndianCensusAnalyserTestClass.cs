@@ -25,8 +25,7 @@ namespace IndianCensusAnalyserTestProject
         [TestMethod]
         public void Given_State_CensusCSVFile_If_Incorrect_Returns_FileNotFound_Exception()
         {
-            string expected = "File Not Found";
-            var result = Assert.ThrowsException<CensusAnalyserException>(() => factory.LoadCsvData(CensusAnalyser.Country.INDIA, expected, "State,Population,AreaInSqKm,DensityPerSqKm"));
+            var result = Assert.ThrowsException<CensusAnalyserException>(() => factory.LoadCsvData(CensusAnalyser.Country.INDIA, incorrectFile, "State,Population,AreaInSqKm,DensityPerSqKm"));
             Assert.AreEqual("File Not Found", result.Message);
         }
     }
