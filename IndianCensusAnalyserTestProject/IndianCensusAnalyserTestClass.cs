@@ -43,6 +43,7 @@ namespace IndianCensusAnalyserTestProject
         public const string incorrectFile = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\IndianState.txt";
         public const string incorrectFileType = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\CensusData.txt";
         public const string incorrectDelimiter = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\DelimiterIndiaStateCode.csv";
+        public const string incorrectHeader = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\WrongHeaderStateCode.csv";
 
         [TestMethod]
         public void Given_CSVFile_Should_Return_NoOfRecord()
@@ -51,7 +52,8 @@ namespace IndianCensusAnalyserTestProject
             Assert.AreEqual(37, dict.Count);
         }
         [TestMethod]
-        [DataRow(incorrectDelimiter, "File Containers Wrong Delimiter")]
+        [DataRow(incorrectHeader, "Incorrect header in Data")]
+        //[DataRow(incorrectDelimiter, "File Containers Wrong Delimiter")]
         //[DataRow(incorrectFileType, "Invalid file type")]
         //[DataRow(incorrectFile, "File Not Found")]
         public void Given_State_CensusCSVFile_If_Incorrect_Returns_FileNotFound_Exception(string file, string expected)

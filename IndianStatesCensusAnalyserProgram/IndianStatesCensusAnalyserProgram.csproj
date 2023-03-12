@@ -60,6 +60,7 @@
     <None Include="CSVFile\IndianStateCensusData.csv" />
     <None Include="CSVFile\DelimiterIndiaStateCensusData.csv" />
     <None Include="CSVFile\IndianStateCode.csv" />
+    <None Include="CSVFile\WrongHeaderStateCode.csv" />
     <None Include="CSVFile\WrongIndiaStateCensusData.csv" />
   </ItemGroup>
   <ItemGroup>
