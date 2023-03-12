@@ -41,6 +41,7 @@ namespace IndianCensusAnalyserTestProject
 
         string indianStateCode = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\IndianStateCode.csv";
         public const string incorrectFile = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\IndianState.txt";
+        public const string incorrectFileType = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\CensusData.txt";
 
         [TestMethod]
         public void Given_CSVFile_Should_Return_NoOfRecord()
@@ -49,7 +50,8 @@ namespace IndianCensusAnalyserTestProject
             Assert.AreEqual(37, dict.Count);
         }
         [TestMethod]
-        [DataRow(incorrectFile, "File Not Found")]
+        [DataRow(incorrectFileType, "Invalid file type")]
+        //[DataRow(incorrectFile, "File Not Found")]
         public void Given_State_CensusCSVFile_If_Incorrect_Returns_FileNotFound_Exception(string file, string expected)
         {
             var result = Assert.ThrowsException<CensusAnalyserException>(() => factory.LoadCsvData(CensusAnalyser.Country.INDIA, file, "SrNo,State Name,TIN,StateCode"));
