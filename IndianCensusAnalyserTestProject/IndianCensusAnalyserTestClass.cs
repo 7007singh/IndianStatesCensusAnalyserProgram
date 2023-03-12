@@ -14,7 +14,8 @@ namespace IndianCensusAnalyserTestProject
         Dictionary<string, CensusDTO> dict = new Dictionary<string, CensusDTO>();
         CSVAdapterFactory factory = new CSVAdapterFactory();
         string indianPopulation = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\IndianStateCensusData.csv";
-        string incorrectFile = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\IndianCensus.txt";
+        public const string incorrectFile = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\IndianCensus.txt";
+        public const string incorrectFileType = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\CensusData.txt";
         
         [TestMethod]
         public void Given_CSVFile_Should_Return_NoOfRecord()
@@ -22,11 +23,14 @@ namespace IndianCensusAnalyserTestProject
             dict = factory.LoadCsvData(CensusAnalyser.Country.INDIA, indianPopulation, "State,Population,AreaInSqKm,DensityPerSqKm");
             Assert.AreEqual(29, dict.Count);
         }
+
         [TestMethod]
-        public void Given_State_CensusCSVFile_If_Incorrect_Returns_FileNotFound_Exception()
+        [DataRow(incorrectFileType, "Invalid file type")]
+        [DataRow(incorrectFile, "File Not Found")]
+        public void Given_State_CensusCSVFile_If_Incorrect_Returns_FileNotFound_Exception(string file, string expected)
         {
-            var result = Assert.ThrowsException<CensusAnalyserException>(() => factory.LoadCsvData(CensusAnalyser.Country.INDIA, incorrectFile, "State,Population,AreaInSqKm,DensityPerSqKm"));
-            Assert.AreEqual("File Not Found", result.Message);
+            var result = Assert.ThrowsException<CensusAnalyserException>(() => factory.LoadCsvData(CensusAnalyser.Country.INDIA, file, "State,Population,AreaInSqKm,DensityPerSqKm"));
+            Assert.AreEqual(expected, result.Message);
         }
     }
 }
