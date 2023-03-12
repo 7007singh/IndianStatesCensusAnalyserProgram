@@ -14,8 +14,14 @@ namespace IndianStateCensusAnalyser
         {
             INDIA
         }
-        public Dictionary<string, CensusDTO> datamap;
-        public Dictionary<string, CensusDTO> LoadCensusData(Country country, string csvFilePath, string dataHeaders)
+        //public Dictionary<string, CensusDTO> datamap;
+        //public Dictionary<string, CensusDTO> LoadCensusData(Country country, string csvFilePath, string dataHeaders)
+        //{
+        //    datamap = new CSVAdapterFactory().LoadCsvData(country, csvFilePath, dataHeaders);
+        //    return datamap;
+        //}
+        public Dictionary<string, CensusDataDAO> datamap;
+        public Dictionary<string, CensusDataDAO> LoadCensusData(Country country, string csvFilePath, string dataHeaders)
         {
             datamap = new CSVAdapterFactory().LoadCsvData(country, csvFilePath, dataHeaders);
             return datamap;
