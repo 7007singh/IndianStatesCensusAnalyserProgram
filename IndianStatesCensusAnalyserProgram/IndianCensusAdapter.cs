@@ -23,7 +23,7 @@ namespace IndiaCensusDataDemo
                         throw new CensusAnalyserException("File Containers Wrong Delimiter", CensusAnalyserException.ExceptionType.INCOREECT_DELIMITER);
                     }
                     string[] coloumn = data.Split(',');
-                    if (csvFilePath.Contains("IndianPopulation.csv"))
+                    if (csvFilePath.Contains("IndianStateCensusData.csv"))
                         censusState.Add(coloumn[0], new CensusDTO(new CensusDataDAO(coloumn[0], coloumn[1], coloumn[2], coloumn[3])));
                 }
                 return censusState;
