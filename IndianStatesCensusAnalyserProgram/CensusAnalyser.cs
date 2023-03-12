@@ -1,5 +1,6 @@
 ﻿using IndianCensus;
 using IndianCensus.DTO;
+using IndianStatesCensusAnalyserProgram.DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,8 +21,8 @@ namespace IndianStateCensusAnalyser
         //    datamap = new CSVAdapterFactory().LoadCsvData(country, csvFilePath, dataHeaders);
         //    return datamap;
         //}
-        public Dictionary<string, CensusDataDAO> datamap;
-        public Dictionary<string, CensusDataDAO> LoadCensusData(Country country, string csvFilePath, string dataHeaders)
+        public Dictionary<string, StateCodeDataDAO> datamap;
+        public Dictionary<string, StateCodeDataDAO> LoadCensusData(Country country, string csvFilePath, string dataHeaders)
         {
             datamap = new CSVAdapterFactory().LoadCsvData(country, csvFilePath, dataHeaders);
             return datamap;

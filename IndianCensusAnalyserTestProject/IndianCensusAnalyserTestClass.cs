@@ -5,13 +5,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using IndiaCensusDataDemo;
+using IndianStatesCensusAnalyserProgram.DAO;
 
 namespace IndianCensusAnalyserTestProject
 {
     [TestClass]
     public class IndianCensusAnalyserTestClass
     {
-        Dictionary<string, CensusDataDAO> dict = new Dictionary<string, CensusDataDAO>();
+        Dictionary<string, StateCodeDataDAO> dict = new Dictionary<string, StateCodeDataDAO>();
         //Dictionary<string, CensusDTO> dict = new Dictionary<string, CensusDTO>();
         CSVAdapterFactory factory = new CSVAdapterFactory();
         //string indianPopulation = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\IndianStateCensusData.csv";
@@ -19,7 +20,7 @@ namespace IndianCensusAnalyserTestProject
         //public const string incorrectFileType = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\CensusData.txt";
         //public const string incorrectDelimiter = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\DelimiterIndiaStateCensusData.csv";
         //public const string incorrectHeader = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\WrongIndiaStateCensusData.csv";
-        
+
         //[TestMethod]
         //public void Given_CSVFile_Should_Return_NoOfRecord()
         //{
@@ -38,6 +39,13 @@ namespace IndianCensusAnalyserTestProject
         //    Assert.AreEqual(expected, result.Message);
         //}
 
-        
+        string indianStateCode = @"C:\Users\Shweta\source\repos\IndianStatesCensusAnalyserProgram\IndianStatesCensusAnalyserProgram\CSVFile\IndianStateCode.csv";
+
+        [TestMethod]
+        public void Given_CSVFile_Should_Return_NoOfRecord()
+        {
+            dict = factory.LoadCsvData(CensusAnalyser.Country.INDIA, indianStateCode, "SrNo,State Name,TIN,StateCode");
+            Assert.AreEqual(37, dict.Count);
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IndianStatesCensusAnalyserProgram.DAO
 {
-    internal class StateCodeDataDAO
+    public class StateCodeDataDAO
     {
         public int serialNumber;
         public string stateName;
