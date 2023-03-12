@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="CSVFile\DelimiterIndiaStateCode.csv" />
     <None Include="CSVFile\IndianStateCensusData.csv" />
     <None Include="CSVFile\DelimiterIndiaStateCensusData.csv" />
     <None Include="CSVFile\IndianStateCode.csv" />
